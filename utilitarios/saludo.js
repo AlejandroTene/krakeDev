@@ -7,6 +7,16 @@ saludar=function(){
     let edad=recuperarInt("txtEdad");
 
     let estatura=recuperarFloat("txtEstatura");
+
+    let mensajeBienbenida="Bienvenido "+nombre+" "+apellido;
+    
+    mostrarTexto("lblResultado",mensajeBienbenida)
+}
+
+mostrarTexto=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.innerText= mensaje;
 }
 
 recuperarTexto=function(idComponente){
