@@ -5,4 +5,9 @@ calcularPromedioNotas=function(){
     let promedio=calcularPromedio(n1Float,n2Float,n3Float);
     let promedioRedondeado=promedio.toFixed(2);
     cambiarTexto("lblpromedio",promedioRedondeado);
+    if(promedioRedondeado>7){
+        cambiarImagen("imgV","exito.gif");
+    }else{
+        cambiarImagen("imgV","fracaso.gif");
+    }
 }
