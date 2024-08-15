@@ -1,14 +1,14 @@
 calcularTasaInteres=function(ingresoAnual){
     if(ingresoAnual<300000){
-        return 16;
+        return 0.16;
     }else if(ingresoAnual>=300000 && ingresoAnual<500000){
-        return 15;
+        return 0.15;
     }else if(ingresoAnual>=500000 && ingresoAnual<1000000){
-        return 14;
+        return 0.14;
     }else if(ingresoAnual>=1000000 && ingresoAnual<2000000){
-        return 13;
+        return 0.13;
     }else if(ingresoAnual>=2000000){
-        return 12;
+        return 0.12;
     }
 }
 
