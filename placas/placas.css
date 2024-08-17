@@ -1,0 +1,35 @@
+body {
+    background-image: url("fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.titulo{
+    color: rgb(255, 255, 255);
+}
+
+.general{
+    background-color: rgba(59, 60, 61, 0.875);
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 350px;
+}
+
+.validar{
+    display: flex;
+    flex:1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    color: rgb(230, 161, 58);
+
+}
+
+
+ 
