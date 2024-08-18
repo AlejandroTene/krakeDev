@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="placas.css" />
     <script src="placas.js"></script>
     <script src="serviciosPlacas.js"></script>
@@ -14,10 +15,17 @@
             <h2 class="titulo">INGRESE LA PLACA</h2>
         <input type="text" id="txtPlaca" />
         <input type="button" value="VALIDAR" onclick="validarPlaca();" />
-        </div>
+        <input type="button" value="LIMPIAR" onclick="limpiar();" />
+    </div>
         <div class="validar">
-            <h2 id="lblValidar"></h2>
-            <h2 id="lblErrores"></h2>
+            <h2 class="infv" id="lblValidar"></h2>
+            <h2 class="inf" id="lblErrores"></h2>
+            <h2 class="titulos">PROVINCIA</h2>
+            <h2 class="inf" id="lblProvincia"></h2>
+            <h2 class="titulos">TIPO DE VEHÍCULO</h2>
+            <h2 class="inf" id="lbltipo"></h2>
+            <h2 class="titulos">DÍA DE PICO Y PLACA</h2>
+            <h2 class="inf" id="lbldia"></h2>
         </div>
         
     </div>
