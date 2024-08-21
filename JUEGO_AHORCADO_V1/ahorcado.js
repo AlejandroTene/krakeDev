@@ -34,11 +34,11 @@ mostrarLetra = function (letra,posicion) {
         mostrarTextoDiv("div0",letra);
     } else if(posicion == 1){
         mostrarTextoDiv("div1",letra);
-    } else if(posicion == 1){
+    } else if(posicion == 2){
         mostrarTextoDiv("div2",letra);
-    }else if(posicion == 1){
+    }else if(posicion == 3){
         mostrarTextoDiv("div3",letra);
-    }else if(posicion == 1){
+    }else if(posicion == 4){
         mostrarTextoDiv("div4",letra);
     }
 }
@@ -47,7 +47,7 @@ validar = function (letra) {
     let letrasEncontradas=0;
     let tamanio = palabraSecreta.length;
     for (let i = 0; i < tamanio; i++) {
-        let caracter= palabraSecreta.charCodeAt(i);
+        let caracter= palabraSecreta.charAt(i);
         if (caracter==letra) {
             mostrarLetra(letra,i);
             letrasEncontradas++;
@@ -55,6 +55,15 @@ validar = function (letra) {
     }
 }
 
+ingresarLetra = function () {
+    let letra=recuperarTexto("txtLetra");
+    let letraCodigo = letra.charCodeAt(0);
+    if(esMayuscula(letraCodigo)){
+        validar(letra);
+    }else{
+        alert("Solo se aceptan mayúsculas");
+    }
+}
 
 
 mostrarTextoDiv=function(idComponente,mensaje){
