@@ -1,5 +1,6 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
 let palabraSecreta = "";
+
 esMayuscula = function (caracter) {
     if (caracter >= 65 && caracter <= 90) {
         return true;
@@ -26,6 +27,26 @@ guardarPalabra = function () {
 
 
     console.log(palabraSecreta);
+}
+
+mostrarLetra = function (letra,posicion) {
+    if (posicion == 0) {
+        mostrarTextoDiv("div0",letra);
+    } else if(posicion == 1){
+        mostrarTextoDiv("div1",letra);
+    } else if(posicion == 1){
+        mostrarTextoDiv("div2",letra);
+    }else if(posicion == 1){
+        mostrarTextoDiv("div3",letra);
+    }else if(posicion == 1){
+        mostrarTextoDiv("div4",letra);
+    }
+}
+
+mostrarTextoDiv=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.textContent = mensaje;
 }
 
 
