@@ -43,6 +43,20 @@ mostrarLetra = function (letra,posicion) {
     }
 }
 
+validar = function (letra) {
+    let letrasEncontradas=0;
+    let tamanio = palabraSecreta.length;
+    for (let i = 0; i < tamanio; i++) {
+        let caracter= palabraSecreta.charCodeAt(i);
+        if (caracter==letra) {
+            mostrarLetra(letra,i);
+            letrasEncontradas++;
+        }
+    }
+}
+
+
+
 mostrarTextoDiv=function(idComponente,mensaje){
     let componente;
     componente=document.getElementById(idComponente);
