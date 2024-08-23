@@ -3,6 +3,7 @@ let empleados = [
     {cedula:"0914632123",nombre:"Luisa",apellido:"Gonzalez",sueldo:900.0},
     {cedula:"1150253086",nombre:"Carlos",apellido:"Mora",sueldo:475.0}
 ]
+let esNuevo=false;
 
 mostrarEmpleados=function(){
     let cmptabla=document.getElementById("tablaEmpleados");
@@ -26,11 +27,25 @@ mostrarEmpleados=function(){
     cmptabla.innerHTML=contenidoTabla;
 }
 
+ejecutarNuevo=function(){
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
+    esNuevo=true;
+}
+
 mostrarOpcionEmpleado=function(){
     mostrarComponente("divEmpleado");
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
     mostrarEmpleados();
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente("txtNombre");
+    deshabilitarComponente("txtApellido");
+    deshabilitarComponente("txtSueldo");
+    deshabilitarComponente("btnGuardar");
 }
 
 mostrarOpcionRol=function(){
