@@ -201,7 +201,6 @@ guardarRol=function(){
     rol.cedula=cedula;
     rol.aporteEmpleador=aporteEmpleador;
     agregarRol(rol);
-    alert("ÉXITO");
     deshabilitarComponente("btnGuardarRol");
 }
 
@@ -245,6 +244,7 @@ mostrarTotales=function(){
     mostrarTexto("infoAporteEmpresa", toltalEmpleador);
     mostrarTexto("infoAporteEmpleado", totalEmpleado);
     let totalNomina=toltalEmpleador+totalEmpleado+totalAPagar;
+    mostrarTexto("infoToltal", totalNomina);
 }
 
 calcularAporteEmpleado=function(sueldo){
@@ -317,4 +317,5 @@ mostrarOpcionResumen = function () {
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+    mostrarRoles();
 }
