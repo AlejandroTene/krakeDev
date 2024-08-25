@@ -109,6 +109,11 @@ guardar = function () {
             if(resultado==true){
                 alert("EMPLEADO GUARDADO CORRECTAMENTE");
                 mostrarEmpleados();
+                deshabilitarComponente("txtCedula");
+                deshabilitarComponente("txtNombre");
+                deshabilitarComponente("txtApellido");
+                deshabilitarComponente("txtSueldo");
+                deshabilitarComponente("btnGuardar");
             }else{
                 alert("YA EXISTE UN EMPLEADO CON LA CÉDULA: "+vCedula);
     
