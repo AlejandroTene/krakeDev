@@ -4,7 +4,7 @@ let empleados = [
     { cedula: "1150253086", nombre: "Carlos", apellido: "Mora", sueldo: 475.0 }
 ]
 let esNuevo = false;
-
+let roles=[];
 mostrarEmpleados = function () {
     let cmptabla = document.getElementById("tablaEmpleados");
     let contenidoTabla = "<table><tr>" +
@@ -159,6 +159,51 @@ buscarPorRol=function(){
     }
 }
 
+buscarRol=function(cedula){
+    let elementoE;
+    let empleadoE = null;
+    for (let i = 0; i < roles.length; i++) {
+        elementoE = roles[i];
+        if (elementoE.cedula == cedula) {
+            empleadoE = elementoE;
+            break;
+        }
+    }
+    return empleadoE;
+}
+
+agregarRol=function(rol){
+    let busqueda = buscarRol(rol.cedula);
+    if (busqueda == null) {
+        roles.push(rol);
+        alert("ROL GUARDADO CORRECTAMENTE");
+    } else {
+        alert("YA EXISTE UN ROL CON EL NÚMERO DE CÉDULA: "+rol.cedula);
+    }
+}
+
+calcularAporteEmpleador=function(sueldo){
+    let aporte=(sueldo*11.15)/100;
+    return aporte;
+}
+
+guardarRol=function(){
+    let valorP=recuperarFloatDiv("infoPago");
+    let aporteI=recuperarFloatDiv("infoIESS");
+    let nombre=recuperarTextoDiv("infoNombre");
+    let cedula=recuperarTextoDiv("infoCedula");
+    let sueldo=recuperarFloatDiv("infoSueldo");
+    let aporteEmpleador=calcularAporteEmpleador(sueldo);
+    let rol= {};
+    rol.valor=valorP;
+    rol.aporteIess=aporteI;
+    rol.nombre=nombre;
+    rol.cedula=cedula;
+    rol.aporteEmpleador=aporteEmpleador;
+    alert("ROL GUARDADO EXITOSAMENTE");
+    deshabilitarComponente("btnGuardarRol");
+}
+
 calcularAporteEmpleado=function(sueldo){
     let aporte=(sueldo*9.45)/100;
     return aporte;
@@ -177,6 +222,7 @@ calcularRol=function(){
         mostrarTexto("infoIESS", aporte);
         let pagar=calcularValorAPagar(sueldo,aporte,descuentos);
         mostrarTexto("infoPago", pagar);
+        habilitarComponente("btnGuardarRol");
     }
 }
 
@@ -219,6 +265,8 @@ mostrarOpcionRol = function () {
     mostrarComponente("divRol");
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
+    deshabilitarComponente("btnGuardarRol");
+
 }
 
 mostrarOpcionResumen = function () {
