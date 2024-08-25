@@ -51,72 +51,69 @@ agregarEmpleado = function (empleado) {
 }
 
 guardar = function () {
-    let errores=false;
+    let errores = false;
     let vCedula = recuperarTexto("txtCedula");
-    let hayErroresC=false;
+    let hayErroresC = false;
     for (let i = 0; i < vCedula.length; i++) {
         let codigo = vCedula.charCodeAt(i);
         if (esDigito(codigo) == false) {
             hayErroresC = true;
         }
     }
-    if (vCedula.length != 10 || hayErroresC==true) {
-        mostrarTexto("lblErrorCedula","Debe tener 10 caracteres, todos dígitos");
-        errores=true;
+    if (vCedula.length != 10 || hayErroresC == true) {
+        mostrarTexto("lblErrorCedula", "Debe tener 10 caracteres, todos dígitos");
+        errores = true;
     }
 
     let vNombre = recuperarTexto("txtNombre");
-    let hayErroresN=false;
+    let hayErroresN = false;
     for (let i = 0; i < vNombre.length; i++) {
         let codigo = vNombre.charCodeAt(i);
         if (esMayuscula(codigo) == false) {
             hayErroresN = true;
         }
     }
-    if (vNombre.length < 3 || hayErroresN==true) {
-        mostrarTexto("lblErrorNombre","Debe tener al menos 3 caracteres y todos en mayúsculas");
-        errores=true;
+    if (vNombre.length < 3 || hayErroresN == true) {
+        mostrarTexto("lblErrorNombre", "Debe tener al menos 3 caracteres y todos en mayúsculas");
+        errores = true;
     }
 
 
     let vApellido = recuperarTexto("txtApellido");
-    let hayErroresA=false;
+    let hayErroresA = false;
     for (let i = 0; i < vApellido.length; i++) {
         let codigo = vApellido.charCodeAt(i);
         if (esMayuscula(codigo) == false) {
             hayErroresA = true;
         }
     }
-    if (vApellido.length < 3 || hayErroresA==true) {
-        mostrarTexto("lblErrorApellido","Debe tener al menos 3 caracteres y todos en mayúsculas");
-        errores=true;
+    if (vApellido.length < 3 || hayErroresA == true) {
+        mostrarTexto("lblErrorApellido", "Debe tener al menos 3 caracteres y todos en mayúsculas");
+        errores = true;
     }
 
     let vSueldo = recuperarFloat("txtSueldo");
-    if (vSueldo == NaN || vSueldo<400 || vSueldo>5000) {
-        mostrarTexto("lblErrorSueldo","Debe ser un número flotante entre 400 y 5000");
-        errores=true;
+    if (vSueldo == NaN || vSueldo < 400 || vSueldo > 5000) {
+        mostrarTexto("lblErrorSueldo", "Debe ser un número flotante entre 400 y 5000");
+        errores = true;
     }
 
-    if(errores==false){
-        if(esNuevo=true){
-            let empleado={};
-            empleado.cedula=vCedula;
-            empleado.nombre=vNombre;
-            empleado.apellido=vApellido;
-            empleado.sueldo=vNombre;
-            let resultado=agregarEmpleado(empleado);
-            if(resultado==true){
+    if (errores == false) {
+        if (esNuevo = true) {
+            let empleado = {};
+            empleado.cedula = vCedula;
+            empleado.nombre = vNombre;
+            empleado.apellido = vApellido;
+            empleado.sueldo = vNombre;
+            let resultado = agregarEmpleado(empleado);
+            if (resultado == true) {
                 alert("EMPLEADO GUARDADO CORRECTAMENTE");
                 mostrarEmpleados();
-                deshabilitarComponente("txtCedula");
-                deshabilitarComponente("txtNombre");
-                deshabilitarComponente("txtApellido");
-                deshabilitarComponente("txtSueldo");
-                deshabilitarComponente("btnGuardar");
-            }else{
-                alert("YA EXISTE UN EMPLEADO CON LA CÉDULA: "+vCedula);
-    
+                deshabilitarComponentes();
+
+            } else {
+                alert("YA EXISTE UN EMPLEADO CON LA CÉDULA: " + vCedula);
+
             }
         }
     }
@@ -131,16 +128,20 @@ ejecutarNuevo = function () {
     esNuevo = true;
 }
 
-mostrarOpcionEmpleado = function () {
-    mostrarComponente("divEmpleado");
-    ocultarComponente("divRol");
-    ocultarComponente("divResumen");
-    mostrarEmpleados();
+deshabilitarComponentes = function () {
     deshabilitarComponente("txtCedula");
     deshabilitarComponente("txtNombre");
     deshabilitarComponente("txtApellido");
     deshabilitarComponente("txtSueldo");
     deshabilitarComponente("btnGuardar");
+
+}
+mostrarOpcionEmpleado = function () {
+    mostrarComponente("divEmpleado");
+    ocultarComponente("divRol");
+    ocultarComponente("divResumen");
+    mostrarEmpleados();
+    deshabilitarComponentes();
 }
 
 mostrarOpcionRol = function () {
