@@ -104,7 +104,7 @@ guardar = function () {
             empleado.cedula = vCedula;
             empleado.nombre = vNombre;
             empleado.apellido = vApellido;
-            empleado.sueldo = vNombre;
+            empleado.sueldo = vSueldo;
             let resultado = agregarEmpleado(empleado);
             if (resultado == true) {
                 alert("EMPLEADO GUARDADO CORRECTAMENTE");
