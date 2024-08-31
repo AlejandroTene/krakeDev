@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="orden.css" />
+        <script src="utilitarios.js"></script>
+        <script src="orden.js"></script>
+    </head>
+    <body onload="mostrarPersonas();">
+        <div class="principal">   
+            <div class="contenido">
+                <div class="titulo">
+                    EDADES
+                </div>
+    
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Ingrese el nombre:
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNombre"/>
+                        <div class="error" id="lblErrorNombre"></div>
+                    </div>
+                </div>
+               
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        Ingrese la edad:
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtEdad"/>
+                        <div class="error" id="lblErrorEdad"></div>
+                    </div>
+                </div>
+                <div class="botones">
+                    <div class="contenedorBoton">
+                        <input type="button" value="GUARDAR"
+                         class="estiloBoton" onclick="agregarPersona();" />
+                    </div>
+                    <div class="contenedorBoton">
+                        <input type="button" value="ENCONTRAR MAYOR"
+                         class="estiloBoton" onclick="determinarMayor();" />
+                    </div>
+                    <div class="contenedorBoton">
+                        <input type="button" value="ENCONTRAR MENOR"
+                         class="estiloBoton" onclick="determinarMenor();" />
+                    </div>
+                 </div>
+                 <div  id="lblMayor"></div>
+                 <div  id="lblMenor"></div>
+                 <div id="tablaP" class="areaTabla"></div>
+            </div>
+    
+    </body> 
+</html>
+
